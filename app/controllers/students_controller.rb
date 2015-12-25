@@ -78,8 +78,9 @@ class StudentsController < ApplicationController
     end
   end
   def require_admin
-    if ;ogged_in? and !current_student.admin?
+    if logged_in? and !current_student.admin?
       flash[:danger] = "Only admin can perform that action"
       redirect_to root_path
+    end
   end
 end
