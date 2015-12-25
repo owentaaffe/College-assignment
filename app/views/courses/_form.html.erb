@@ -1,5 +1,4 @@
-<% if logged_in? && (current_student == course.student|| current_student.admin?) %>
-<%= form_for(@course) do |f| %>
+
   <% if @course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -10,7 +9,8 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
+
 <div>
   <p><strong>
      Please take my Survey
@@ -48,4 +48,4 @@
     <% end %>
   </div>
 </div>
-<% end %>
+
