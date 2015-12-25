@@ -1,3 +1,4 @@
+<% if logged_in? && (current_student == course.student|| current_student.admin?) %>
 <%= form_for(@course) do |f| %>
   <% if @course.errors.any? %>
     <div id="error_explanation">

@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
-    
+
   end
 
   # GET /courses/1/edit
@@ -43,6 +43,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
+        
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
       else
@@ -72,4 +73,10 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:title, :description)
     end
+   def require_same_student
+    if current_student != @course.student and !current_student.admin?
+      flash[:danger] = "You can only edit or delete your own courses"
+                    redirect_to root_path
+    end
+  end
 end

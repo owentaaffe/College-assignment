@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_student, only: [:show, :edit, :update]
+  before_action :require_same_student, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy]
   # GET /students
   # GET /students.json
   def index
@@ -28,11 +29,10 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
+        session[:student_id] = @student.id
+        flash[:success] = "Welcome to our College #{@student.name}"
       else
-        format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
+        render 'new'
       end
     end
   end
@@ -69,6 +69,17 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :email, :age, :password ) 
+      params.require(:student).permit(:name, :email, :age, :password )
     end
+   def require_same_student
+    if current_student != @course.student and !current_student.admin?
+      flash[:danger] = "You can only edit or delete your own courses"
+                    redirect_to root_path
+    end
+  end
+  def require_admin
+    if ;ogged_in? and !current_student.admin?
+      flash[:danger] = "Only admin can perform that action"
+      redirect_to root_path
+  end
 end
