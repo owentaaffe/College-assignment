@@ -1,7 +1,7 @@
 class Student < ActiveRecord::Base
 
-  
-  has_many :courses, :through => :registers
+
+   
   validates :name, presence: true,
              uniqueness: { case_sensitive: false },
              length: { minimum: 3, maximum: 25 }

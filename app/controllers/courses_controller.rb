@@ -73,10 +73,5 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:title, :description)
     end
-   def require_same_student
-    if current_student != @course.student and !current_student.admin?
-      flash[:danger] = "You can only edit or delete your own courses"
-                    redirect_to root_path
-    end
-  end
+   
 end

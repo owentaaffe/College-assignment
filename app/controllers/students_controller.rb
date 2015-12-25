@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update]
-  before_action :require_same_student, only: [:edit, :update, :destroy]
-  before_action :require_admin, only: [:destroy]
+
+  
   # GET /students
   # GET /students.json
   def index
