@@ -1,5 +1,5 @@
 class Register < ActiveRecord::Base
-  belongs_to :course
+  has+many :courses
   belongs_to :student
   validates :student_id, presence: true
   

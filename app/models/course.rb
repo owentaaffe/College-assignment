@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
-  has_many :registers
-  has_many :students, :through => :registers
+  belongs_to :register
+  has_many :students
   validates :student_id, presence: true
-  
+
 end

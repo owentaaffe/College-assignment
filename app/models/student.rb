@@ -1,6 +1,6 @@
 class Student < ActiveRecord::Base
 
-  has_many :registers
+  
   has_many :courses, :through => :registers
   validates :name, presence: true,
              uniqueness: { case_sensitive: false },
