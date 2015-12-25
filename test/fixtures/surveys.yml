@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  how: MyString
+  would: MyString
+  much: 1
+  change: MyText
+
+two:
+  how: MyString
+  would: MyString
+  much: 1
+  change: MyText

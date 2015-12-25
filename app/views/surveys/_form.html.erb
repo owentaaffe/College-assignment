@@ -1,0 +1,39 @@
+<%= form_for(@survey) do |f| %>
+  <% if @survey.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+
+      <ul>
+      <% @survey.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :how %>
+    <strong>easy is it to navigate this website?</strong>
+    <%= f.text_field :how %><br><br>
+  </div>
+  <div class="field">
+    <%= f.label :would %>
+    <strong>you tell your friends about this website?</strong>
+    <%= f.text_field :would %><br><br>
+  </div>
+  <div class="field">
+    <strong>How</strong>
+    <%= f.label :much %>
+    <strong>out of ten would you give this site?</strong>
+    <%= f.number_field :much %><br><br>
+  </div>
+  <div class="field">
+    <strong>Is there a</strong>
+    <%= f.label :change %>
+    <strong>that you would make?</strong>
+    <%= f.text_area :change %><br><br>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit your answers"%>
+  </div><br><br>
+<% end %>
