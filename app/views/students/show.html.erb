@@ -1,19 +1,40 @@
 <p id="notice"><%= notice %></p>
+<h1 align="center"> Showing Student</h1>
+<div class='row'>
+  <div class='col-md-12'>
+    <%= form_for(@student, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <div class="form-group">
+      <div class="control-label col-md-offset-2 col-md-2">
+        <%= f.label :name %>
+      </div>
+      <div class="col-md-8">
+        <%= f.text_field :name, class: "form-control" %><br>
+      </div>
+    </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @student.name %>
-</p>
+    <div class="form-group">
+      <div class="control-label col-md-offset-2 col-md-2">
+        <%= f.label :email %>
+      </div>
+      <div class="col-md-8">
+        <%= f.email_field :email, class: "form-control" %><br><br>
+      </div>
+    </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @student.email %>
-</p>
+    <div class="form-group">
+      <div class="control-label col-md-offset-2 col-md-2">
+        <%= f.label :age %>
+      </div>
+      <div class="col-md-8">
+        <%= f.text_field  :age %><br>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Age:</strong>
-  <%= @student.age %>
-</p>
+    <% end %>
+
+</div>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
+

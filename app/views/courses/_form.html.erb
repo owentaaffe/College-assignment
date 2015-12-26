@@ -15,7 +15,7 @@
   <p><strong>
      Please take my Survey
   </strong></p>
-     <%= link_to 'Take Survey', new_survey_path %>
+     [ <%= link_to 'Take Survey', new_survey_path %> ]
 </div><br>
 
 <div class='row'>
@@ -36,7 +36,7 @@
         <%= f.label :description %>
       </div>
       <div class="col-sm-8">
-        <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Body of course" %>
+        <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Body of course" %><br>
       </div>
     </div>
 
