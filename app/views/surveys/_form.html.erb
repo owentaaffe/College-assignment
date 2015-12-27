@@ -15,17 +15,17 @@
   <div class='col-xs-12'>
     <%= form_for(@survey, :html => {class: "form-horizontal", role: "form"}) do |f| %>
     <div class="form-group">
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-4">
         <%= f.label :how %>
           <strong>easy is it to navigate this website?</strong>
       </div>
       <div class="col-sm-8">
-        <%= f.text_field :how, class: "form-control", placeholder: "Place full name here", autofocus: true %>
+        <%= f.text_field :how, class: "form-control", placeholder: "", autofocus: true %>
       </div>
     </div><br><br><br>
 
     <div class="form-group">
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-4">
         <%= f.label :would %>
           <strong>you tell your friends about this website?</strong>
       </div>
@@ -35,24 +35,24 @@
     </div><br><br><br>
 
     <div class="form-group">
-      <div class="control-label col-sm-2">
+      <div class="control-label col-sm-4">
         <strong>How</strong>
         <%= f.label :much %>
         <strong>out of ten would you give this site?</strong>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-2">
         <%= f.number_field :much, class: "form-control", placeholder: "" %>
       </div>
     </div><br><br><br>
 
     <div class="form-group">
-      <div class="control-label col-sm-2">
-        <strong>Is there a</strong>
+      <div class="control-label col-sm-4">
+        <strong>Is there any</strong>
         <%= f.label :change %>
         <strong>that you would make?</strong>
       </div>
       <div class="col-sm-8">
-        <%= f.text_area :change, rows: 10, class: "form-control", placeholder: "" %>
+        <%= f.text_area :change, rows: 10, class: "form-control", placeholder: "" %><br>
       </div>
     </div><br><br><br>
 

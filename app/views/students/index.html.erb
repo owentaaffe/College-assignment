@@ -11,17 +11,17 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><strong>Name:</strong><%= student.name %></h3>
+    <h3 class="panel-title"><strong>Name:</strong> <%= student.name %></h3>
   </div>
   <div class="panel-heading">
-    <h3 class="panel-title"><strong>Email:</strong><%= student.email %></h3>
+    <h3 class="panel-title"><strong>Email:</strong> <%= student.email %></h3>
   </div>
   <div class="panel-heading">
-    <h3 class="panel-title"><strong>Age:</strong><%= student.age %></h3>
+    <h3 class="panel-title"><strong>D.O.B:</strong> <%= student.age %></h3>
   </div>
 
   <div class="panel-footer">
-    <%= link_to "register here", new_register_path, class: 'btn btn-primary btn-lg' %>
+    
     <%= link_to 'Show', student %> |
     <%= link_to 'Edit', edit_student_path(student)  %> |
     <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %>
