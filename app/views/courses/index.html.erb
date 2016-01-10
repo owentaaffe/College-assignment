@@ -3,12 +3,13 @@
 <h1 align="center">Listing Courses</h1>
 
 <div>
-  <p><strong>
-    Please take my Survey
-  </strong></p>
-    [ <%= link_to 'Take Survey', new_survey_path %> ]
-</div><br>
- <% @courses.each do |course| %>
+
+ <% @course.each do |course| %>
+  <div class="course">
+    <h1 class="course-title"><%= link_to course.title, course %></h1>
+    <p class="course-description"><%= course.description %></p>
+  </div>
+
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title"><strong>Title:</strong> <%= course.title %></h3>
@@ -17,7 +18,7 @@
     <%= course.description %>
   </div>
   <div class="panel-footer">
-    <%= link_to "register here", new_register_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to "register here", register_path, class: 'btn btn-primary btn-lg' %>
     <%= link_to 'Show', course %> |
     <%= link_to 'Edit', edit_course_path(course) %> |
     <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -26,4 +27,30 @@
 <% end %>
 
 <%= link_to 'New Course', new_course_path, class: 'btn btn-primary btn-lg' %>
+<h1 align="center">Listing Courses</h1>
+  <h4 align="center"><%= link_to 'Create new Course', new_course_path %></h4><br>
 
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <div class="well well-lg">
+      <div class="course-title">
+        <h1 align="center"><strong>Title: </strong>
+          <%= link_to course.title, course_url(course) %>
+        </h1>
+      </div>
+      <div class="article-body">
+        <h3>Description:</h3>
+         <p><%= course.description %></p>
+      </div><br>
+      <div>
+        <td><%= link_to 'Show course details', course %></td> |
+        <td><%= link_to 'Edit', edit_course_path(course) %></td> |
+        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div>
+    </div>
+    <div class="col-xs-4 col-xs-offset-2">
+      <%= link_to 'New Course', new_course_path %>
+    <div>
+    <% end %>
+  </div>
+</div>
